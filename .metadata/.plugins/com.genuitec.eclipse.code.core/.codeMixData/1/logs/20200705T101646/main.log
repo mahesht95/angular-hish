@@ -1,0 +1,2 @@
+[2020-07-05 10:16:56.640] [main] [error] [uncaught exception in main]: Unable to retrieve mac address (timeout after 10s)
+[2020-07-05 10:16:56.787] [main] [info] update#ctor - updates are disabled as there is no update URL

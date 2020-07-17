@@ -1,0 +1,80 @@
+<div *ngIf="reposneSuccess">
+	<h5 class="text text-success">{{reponseMessage}}</h5>
+</div>
+<div class = "table-responsive">
+<table class = "table table-striped table-bordered">
+	<thead>
+	<tr>
+		<th align="center">Date</th>
+		<th align="center">Category</th>
+		<th align="center">Amount</th>
+		<th align="center" >Comment</th>
+		<th align="center">Mode of Payment</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr *ngFor = "let field of fields; let i = index">
+		<td><input type="date" [(ngModel)] = "field.date" name="{{field.date}}"></td>
+		<td>
+			<select [(ngModel)] = "field.category" name="{{field.category}}">
+				<option>Food</option>
+				<option>Travel</option>
+				<option>Installment</option>
+				<option>Other</option>
+			</select>
+		</td>
+		<td>
+			<input type = "Text" [(ngModel)] = "field.amount" name="{{field.amount}}">
+		</td>
+		<td>
+			<input type = "Text" [(ngModel)] = "field.comment" name="{{field.comment}}">
+		</td>
+		<td>
+			<select [(ngModel)] = "field.modeOfPayment" name="{{field.modeOfPayment}}">
+				<option>Cash</option>
+				<option>Card</option>
+				<option>Wallet</option>
+			</select>
+		</td>
+		<td>
+			<button class = "btn btn-success" (click)= "addFieldValue()">Add+</button>
+		</td>
+		<div *ngIf="isIndexZero">
+		<td>
+			<button class = "btn btn-danger" (click)= "removeField(i)">Remove-</button>
+		</td>
+		</div>
+	</tr>
+	<tr>
+		<td><input type="date" [(ngModel)] = "newAttribute.date" name="date"></td>
+		<td>
+			<select [(ngModel)] = "newAttribute.category" name="category">
+				<option>Food</option>
+				<option>Travel</option>
+				<option>Installment</option>
+				<option>Other</option>
+			</select>
+		</td>
+		<td>
+			<input type = "Text" [(ngModel)] = "newAttribute.amount" name="amount">
+		</td>
+		<td>
+			<input type = "Text" [(ngModel)] = "newAttribute.comment" name="comment">
+		</td>
+		<td>
+			<select [(ngModel)] = "newAttribute.modeOfPayment" name="modeOfPayment">
+				<option>Cash</option>
+				<option>Card</option>
+				<option>Wallet</option>
+			</select>
+		</td>
+		<td>
+			<button class = "btn btn-success" (click)= "addFieldValue()">Add+</button>
+		</td>
+	</tr>
+	</tbody>
+</table>
+</div>
+<div>
+	<button type="submit" class="btn btn-success" (click)="addData()">Write to Diary</button>
+</div>
